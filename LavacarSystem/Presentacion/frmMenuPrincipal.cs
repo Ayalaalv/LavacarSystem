@@ -1,10 +1,24 @@
-﻿namespace LavacarSystem.Presentacion
+﻿using LavacarSystem.Datos;
+
+namespace LavacarSystem.Presentacion
 {
     public partial class frmMenuPrincipal : Form
     {
         public frmMenuPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            if (!ConexionBD.ProbarConexion())
+            {
+                MessageBox.Show(
+                    "No se pudo conectar con la base de datos.\nVerifique que SQL Server esté encendido.",
+                    "Error de conexión",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void btnClientes_Click(object sender, EventArgs e)

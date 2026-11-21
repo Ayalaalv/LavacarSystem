@@ -101,6 +101,7 @@
             Name = "frmMenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LavacarSystem - Menú principal";
+            Load += frmMenuPrincipal_Load;
             ResumeLayout(false);
         }
 
