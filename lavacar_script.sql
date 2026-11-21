@@ -10,9 +10,6 @@ GO
 USE LavacarDB;
 GO
 
--- =============================================
--- TABLAS
--- =============================================
 
 CREATE TABLE Clientes (
     id_cliente INT IDENTITY(1,1) NOT NULL,
@@ -58,9 +55,7 @@ CREATE TABLE Ordenes (
 );
 GO
 
--- =============================================
--- DATOS DE PRUEBA
--- =============================================
+
 
 INSERT INTO Clientes (nombre, telefono) VALUES
 ('Juan Pérez Mora',     '8888-1111'),
@@ -88,21 +83,16 @@ INSERT INTO Servicios (nombre, precio) VALUES
 GO
 
 INSERT INTO Ordenes (fecha, estado, id_vehiculo, id_servicio) VALUES
-('2026-10-05 09:00', 'Terminado',  1, 2),
-('2026-10-05 10:30', 'Terminado',  3, 1),
-('2026-10-06 08:15', 'Terminado',  4, 3),
-('2026-10-07 14:00', 'Terminado',  5, 2),
-('2026-10-08 11:00', 'Terminado',  2, 5),
-('2026-10-09 09:45', 'En proceso', 6, 4),
-('2026-10-10 10:00', 'Pendiente',  1, 1),
-('2026-10-10 10:30', 'Pendiente',  3, 2);
-GO
+('2026-10-05T09:00:00', 'Terminado',  1, 2),
+('2026-10-05T10:30:00', 'Terminado',  3, 1),
+('2026-10-06T08:15:00', 'Terminado',  4, 3),
+('2026-10-07T14:00:00', 'Terminado',  5, 2),
+('2026-10-08T11:00:00', 'Terminado',  2, 5),
+('2026-10-09T09:45:00', 'En proceso', 6, 4),
+('2026-10-10T10:00:00', 'Pendiente',  1, 1),
+('2026-10-10T10:30:00', 'Pendiente',  3, 2);
 
--- =============================================
--- CONSULTAS DE VERIFICACIÓN
--- =============================================
 
--- Ver todas las órdenes con cliente, vehículo y total a cobrar
 SELECT o.id_orden, o.fecha, c.nombre AS cliente, v.placa,
        s.nombre AS servicio, s.precio AS total, o.estado
 FROM Ordenes o
