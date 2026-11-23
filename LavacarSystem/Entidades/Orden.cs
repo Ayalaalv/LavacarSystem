@@ -31,5 +31,30 @@
         {
             return (DateTime.Now - Fecha).Days;
         }
+
+        public string NombreCliente
+        {
+            get { return Vehiculo.NombreCliente; }
+        }
+
+        public string Placa
+        {
+            get { return Vehiculo.Placa; }
+        }
+
+        public string NombreServicio
+        {
+            get { return Servicio.Nombre; }
+        }
+
+        public decimal Total
+        {
+            get { return CalcularTotal(); }
+        }
+
+        public int DiasTranscurridos
+        {
+            get { return CalcularDiasTranscurridos(); }
+        }
     }
 }
