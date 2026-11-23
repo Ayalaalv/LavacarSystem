@@ -52,5 +52,7 @@
                 idCliente = value;
             }
         }
+
+        public string NombreCliente { get; set; } = string.Empty;
     }
 }
